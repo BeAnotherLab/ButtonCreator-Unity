@@ -25,8 +25,13 @@ public class ButtonCreator : MonoBehaviour {
 			GameObject newButton = Instantiate (buttonPrefab, new Vector3 (0, 0, 0), Quaternion.identity);
 
 			newButton.transform.SetParent (canvasParent, false);
+
+			Button buttonBehaviour = newButton.GetComponent<Button> ();
+
+			buttonBehaviour.onClick.AddListener (() => Debug.Log (fileName));
+
 			Text newButtonText = newButton.GetComponentInChildren<Text> () as Text;
-			newButtonText.text = fileName;
+			newButtonText.text = fileName;	
 
 		}
 	}
